@@ -61,7 +61,9 @@ cd legged_gym && pip install -e .
 
 ## For this project 
 You should configure envs above for they are necessary prerequisites
-
+```
+git clone https://github.com/pym96/Unitree-Go2-Adaptive-RL.git
+```
 
 
 ### CODE STRUCTURE ###
@@ -109,8 +111,13 @@ The base environment `legged_robot` implements a rough terrain locomotion task. 
 ## Reference link
 * **`Legged-Gym`** (built on top of NVIDIA Isaac Gym): https://leggedrobotics.github.io/legged_gym/
 
-The main branch supports **PPO** and **Student-Teacher Distillation** with additional features from our research. These include:
+* **'Rsl-rl`** (A fast and simple implementation of RL algorithms, designed to run fully on GPU.):https://github.com/leggedrobotics/rsl_rl.git
 
-* [Random Network Distillation (RND)](https://proceedings.mlr.press/v229/schwarke23a.html) - Encourages exploration by adding
-  a curiosity driven intrinsic reward.
-* [Symmetry-based Augmentation](https://arxiv.org/abs/2403.04359) - Makes the learned behaviors more symmetrical.
+
+* **`Unitree-rl-gymm`** ( reinforcement learning implementation based on Unitree robots) :https://github.com/unitreerobotics/unitree_rl_gym.git
+
+## Future work
+- C++ onnx RL deployment with [onnxruntime](https://github.com/microsoft/onnxruntime.git)
+- 3D mapping with quadruped robot
+- Terrian analysis with [elevation_mapping](https://github.com/ANYbotics/elevation_mapping.git)
+- Final 3d planner with things above.....

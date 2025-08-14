@@ -1,16 +1,79 @@
-### Installation ###
-1. reate a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended). i.e. with conda:
-```conda create -n quad_rl python==3.8```
-```conda activate quad_rl```
-2. Install pytorch  with cuda:
-```pip install torch torchaudio torchvision numpy==1.21.6 tensorboard pybullet pynput opencv-python onnx onnxruntime storage scikit-learn``` 
-3. Install Isaac Gym
-```cd isaacgym/python && pip install -e .```
-4. install rsl_rl (PPO implementation)
-```cd rsl_rl && pip install -e .```
-```Install legged_gym```
+# Unitree Go2 adpative Control RL
 
-cd ../ && pip install -e .
+A adpative control implementation of RL algorithm for unitree go2 quadruped robot. Ubuntu18.04 or later required.
+
+Setup steps are below:
+
+## Anaconda installation 
+
+Download [Anaconda](:https://www.anaconda.com/docs/getting-started/anaconda/install#linux-installer)
+
+
+```
+conda create -n unitree_rl python==3.8 
+conda activate unitree_rl
+```
+
+```
+pip install torch torchaudio torchvision numpy==1.21.6 tensorboard pybullet pynput opencv-python onnx onnxruntime storage scikit-learn
+```
+
+## Issac Gym installation 
+
+Download [Isaac Gym](https://developer.nvidia.com/isaac-gym) from Nvidia’s official website.
+
+```
+cd isaacgym/python
+pip install -e .
+```
+
+test
+```
+cd examples
+python 1080_balls_of_solitude.py
+```
+
+## rsl_rl installation
+```
+git clone https://github.com/leggedrobotics/rsl_rl.git
+```
+
+To 1.0.2 branch(For python3.8)
+```
+cd rsl_rl
+git checkout v1.0.2
+```
+
+install
+```
+pip install -e .
+```
+
+## legged_gym installation
+```
+git clone https://github.com/leggedrobotics/legged_gym.git
+```
+
+```
+cd legged_gym && pip install -e .
+```
+
+
+## For this project 
+You should configure envs above for they are necessary prerequisites
+
+
+
+
+## Reference link
+* **`Legged-Gym`** (built on top of NVIDIA Isaac Gym): https://leggedrobotics.github.io/legged_gym/
+
+The main branch supports **PPO** and **Student-Teacher Distillation** with additional features from our research. These include:
+
+* [Random Network Distillation (RND)](https://proceedings.mlr.press/v229/schwarke23a.html) - Encourages exploration by adding
+  a curiosity driven intrinsic reward.
+* [Symmetry-based Augmentation](https://arxiv.org/abs/2403.04359) - Makes the learned behaviors more symmetrical.
+
 
 ### CODE STRUCTURE ###
 1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one containing  all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  
@@ -35,12 +98,12 @@ cd ../ && pip install -e .
      - --num_envs NUM_ENVS:  Number of environments to create.
      - --seed SEED:  Random seed.
      - --max_iterations MAX_ITERATIONS:  Maximum number of training iterations.
-2. Play a trained policy:  
+2. Play a trained policy :  
 ```python legged_gym/scripts/play.py --task=go2```
     - By default, the loaded policy is the last model of the last run of the experiment folder.
     - Other runs/model iteration can be selected by setting `load_run` and `checkpoint` in the train config.
-3. Sim to Sim
-```python deploy/deploy_mujoco/deploy_mujoco_qaud.py go2.yaml```
+3. Export to onnx
+   refer to legged_gym/scripts/play.py
 
 ### Adding a new environment ###
 The base environment `legged_robot` implements a rough terrain locomotion task. The corresponding cfg does not specify a robot asset (URDF/ MJCF) and has no reward scales. 

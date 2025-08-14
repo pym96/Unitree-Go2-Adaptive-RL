@@ -6,7 +6,7 @@ Setup steps are below:
 
 ## Anaconda installation 
 
-Download [Anaconda](:https://www.anaconda.com/docs/getting-started/anaconda/install#linux-installer)
+Download [Anaconda](https://www.anaconda.com/docs/getting-started/anaconda/install#linux-installer)
 
 
 ```

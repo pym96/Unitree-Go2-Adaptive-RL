@@ -111,7 +111,7 @@ The base environment `legged_robot` implements a rough terrain locomotion task. 
 ## Reference link
 * **`Legged-Gym`** (built on top of NVIDIA Isaac Gym): https://leggedrobotics.github.io/legged_gym/
 
-* **'Rsl-rl`** (A fast and simple implementation of RL algorithms, designed to run fully on GPU.):https://github.com/leggedrobotics/rsl_rl.git
+* **`Rsl-rl`** (A fast and simple implementation of RL algorithms, designed to run fully on GPU.):https://github.com/leggedrobotics/rsl_rl.git
 
 
 * **`Unitree-rl-gymm`** ( reinforcement learning implementation based on Unitree robots) :https://github.com/unitreerobotics/unitree_rl_gym.git

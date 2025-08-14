@@ -2,6 +2,9 @@
 
 A adpative control implementation of RL algorithm for unitree go2 quadruped robot. Ubuntu18.04 or later required.
 
+![814-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/186bece2-4a38-41b8-bb13-f0847ca28e86)
+
+
 Setup steps are below:
 
 ## Anaconda installation 
